@@ -1,0 +1,57 @@
+delete:
+  description: 'Creates a new Asset from the given post body
+
+    '
+  operationId: deleteAsset
+  parameters:
+  - {description: ID of the asset to return, in: path, name: assetID, required: true,
+    type: string}
+  produces: [application/json]
+  responses:
+    '200':
+      description: returns the newly created `asset`
+      schema: {$ref: '../definitions/Assets.yaml'}
+    '401':
+      description: attempted to get assets before signed in
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    '403':
+      description: attempted to call endpoint without admin access
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    default:
+      description: unexpected error
+      schema: {$ref: '../definitions/DefaultError.yaml'}
+  summary: Creates an Asset
+  tags: [Assets, Admin]
+  x-middleware: [auth.authenticateHandler, auth.adminHandler]
+post:
+  consumes: [application/json]
+  description: 'Edits an Asset with the given post body
+
+    '
+  operationId: editAsset
+  parameters:
+  - {description: ID of the asset to return, in: path, name: assetID, required: true,
+    type: string}
+  - description: The new asset data to change
+    in: body
+    name: newAsset
+    required: true
+    schema: {$ref: '../definitions/EditedAsset.yaml'}
+  produces: [application/json]
+  responses:
+    '200':
+      description: returns the newly created `asset`
+      schema: {$ref: '../definitions/Assets.yaml'}
+    '401':
+      description: attempted to get assets before signed in
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    '403':
+      description: attempted to call endpoint without admin access
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    default:
+      description: unexpected error
+      schema: {$ref: '../definitions/DefaultError.yaml'}
+  summary: Edits an Asset
+  tags: [Assets, Admin]
+  x-middleware: [auth.authenticateHandler, auth.adminHandler]
+x-handler: assets

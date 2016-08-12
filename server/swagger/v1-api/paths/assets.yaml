@@ -1,0 +1,19 @@
+get:
+  description: '''Returns an array of all the `assets` in the connected database''
+
+    '
+  operationId: getAssets
+  produces: [application/json]
+  responses:
+    '200':
+      description: returns an array of all `assets`
+      schema: {$ref: ../definitions/Assets.yaml}
+    '401':
+      description: attempted to get assets before signed in
+      schema: {$ref: ../definitions/AuthorizationError.yaml}
+    default:
+      description: unexpected error
+      schema: {$ref: ../definitions/DefaultError.yaml}
+  summary: Asset Array
+  tags: [Assets]
+  x-middleware: auth.authenticateHandler

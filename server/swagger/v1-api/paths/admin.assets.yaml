@@ -1,0 +1,30 @@
+post:
+  consumes: [application/json]
+  description: 'Creates a new Asset from the given post body
+
+    '
+  operationId: createAsset
+  parameters:
+  - description: The new asset to add to the database
+    in: body
+    name: newAsset
+    required: true
+    schema: {$ref: '../definitions/NewAsset.yaml'}
+  produces: [application/json]
+  responses:
+    '201':
+      description: returns the newly created `asset`
+      schema: {$ref: '../definitions/Asset.yaml'}
+    '401':
+      description: attempted to create asset before signed in
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    '403':
+      description: attempted to call endpoint without admin access
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    default:
+      description: unexpected error
+      schema: {$ref: '../definitions/DefaultError.yaml'}
+  summary: Creates an Asset
+  tags: [Assets, Admin]
+  x-middleware: [auth.authenticateHandler, auth.adminHandler]
+x-handler: assets

@@ -1,0 +1,4 @@
+properties:
+  message: {description: will always be 'Not Authorized to use this endpoint! Sign
+      in first.', type: string}
+  status: {description: will always be '401', type: integer}

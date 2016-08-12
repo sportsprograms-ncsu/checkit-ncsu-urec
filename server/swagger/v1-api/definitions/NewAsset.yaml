@@ -1,0 +1,18 @@
+properties:
+  attributes: {description: an array of asset attributes, type: object}
+  categories:
+    properties:
+      os:
+        description: the operating system that this device uses
+        properties:
+          name: {type: string}
+          version: {type: string}
+        type: object
+      type:
+        description: the kind of asset
+        enum: [phone, tablet, laptop, webcam, camera, projector, watch]
+        type: string
+    type: object
+  description: {description: the title of the asset, type: string}
+  name: {description: the title of the asset, type: string}
+type: object

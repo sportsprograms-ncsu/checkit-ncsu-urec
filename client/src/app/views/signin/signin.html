@@ -1,0 +1,29 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<div class="signin-page-container">
+    <div class="checkit-logo-container">
+        <img class="checkit-logo" src="assets/images/Signin_Logo_220x220.svg" alt=""/>
+    </div>
+
+    <div ng-switch on="vm.pageState" class="signin-container">
+        <div loading ng-switch-default></div>
+        <div ng-switch-when="signin" class="center-button">
+            <button class="checkit-button" ng-click="vm.signIn('google')">
+                <div class="row align-middle">
+                    <div class="small-2 columns">
+                        <img class="icon" src="assets/images/gmail_28x24.svg" alt=""/>
+                    </div>
+                    <div class="small-10 columns">Sign in with Gmail</div>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="tiny text-center dialog reveal" data-reveal id="errorModal">
+    <h4 class="error-message">{{err.status }}<br /> {{err.message }}</h4>
+    <a data-close class="secondary button" >Okay</a>
+</div>

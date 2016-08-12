@@ -1,0 +1,24 @@
+get:
+  description: 'Returns a single array by matching the `assetID` in the path with
+    the asset IDs in the database
+
+    '
+  operationId: getSingleAsset
+  parameters:
+  - {description: ID of the asset to return, in: path, name: assetID, required: true,
+    type: string}
+  produces: [application/json]
+  responses:
+    '200':
+      description: returns single asset
+      schema: {$ref: '../definitions/Asset.yaml'}
+    '401':
+      description: attempted to get assets before signed in
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    default:
+      description: unexpected error
+      schema: {$ref: '../definitions/DefaultError.yaml'}
+  summary: Single Asset
+  tags: [Assets]
+  x-middleware: auth.authenticateHandler
+x-handler: assets

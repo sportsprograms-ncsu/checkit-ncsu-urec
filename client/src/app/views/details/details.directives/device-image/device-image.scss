@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the device-image directive.
+ */
+
+device-image{
+	@include beflexible;
+	@include heightbyvh(28%);
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	order: 1;
+	flex: 0 0 auto;
+	img {
+		max-height: 75%;
+	}
+	.caption-text {
+		position: absolute;
+		bottom: -24px;
+		width: 100%;
+		text-align: center;
+		font-size: 24px;
+		color: $checkit-subcolor;
+	}
+}

@@ -1,0 +1,17 @@
+post:
+  description: 'Authenticates the user with the server and returns basic profile information
+
+    '
+  operationId: login
+  produces: [application/json]
+  responses:
+    '200': {description: returns user information}
+    '401':
+      description: attempted to sign in without a valid email
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    default:
+      description: unexpected error
+      schema: {$ref: '../definitions/DefaultError.yaml'}
+  summary: Login to Server
+  tags: [Auth]
+x-handler: auth

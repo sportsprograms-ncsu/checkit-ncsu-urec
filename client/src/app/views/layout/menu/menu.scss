@@ -1,0 +1,91 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the menu view.
+ */
+
+.snap-drawer-right {
+    padding: 0 25px;
+    height: 100vh;
+}
+
+.menu-body {
+    height: 100%;
+    @include beflexible;
+    flex-flow: column;
+    // width: 100%;
+    .menu-head {
+    	flex: 0 0 auto;
+    	z-index: 3;
+        .title {
+            @include relative-center;
+        }
+        font-weight: 300;
+        height: $header-height;
+        font-size: 30px;
+        color: $checkit-green;
+        border-bottom: $menu-member-border;
+        -webkit-box-shadow: 0 5px 25px 12px $checkit-background-menu;
+        -moz-box-shadow: 0 5px 25px 12px $checkit-background-menu;
+        box-shadow: 0 5px 25px 12px $checkit-background-menu;
+    }
+    .menu-list {
+        //width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        [ng-switch-when] {
+        	position: absolute;
+            overflow: auto;
+            margin: 0 0 10px 0;
+            padding: 0;
+            border-top: none;
+            border-bottom: none;
+            ul {
+                list-style-type: none;
+                margin: 0;
+            }
+            li {
+                border-bottom: $menu-member-border;
+                &:first-child {
+                    border-top: none;
+                }
+                .res-block {
+                    @include beflexible;
+                    font-weight: 300;
+                    line-height: 1.0;
+                    height: 85px;
+                    -webkit-align-items: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    .content-wrapper {
+                        width: 100%;
+                        .name {
+                            display: block;
+                            width: 100%;
+                        }
+                        .status {
+                            font-size: 21px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .menu-footer {
+    	z-index: 3;
+        text-align: center;
+        -webkit-box-shadow: 0 -30px 25px 12px $checkit-background-menu;
+        -moz-box-shadow: 0 -30px 25px 12px $checkit-background-menu;
+        box-shadow: 0 -30px 25px 12px $checkit-background-menu;
+        margin: 30px 0;
+        .checkit-button {
+            width: 200px;
+            border-color: $checkit-signin-signout;
+            color: $checkit-signin-signout;
+            font-size: 24px;
+            margin: 0px 0 15px 0;
+        }
+    }
+}

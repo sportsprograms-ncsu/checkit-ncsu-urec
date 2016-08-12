@@ -1,0 +1,63 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the device-history directive.
+ */
+
+.expand-history {
+    order: 2;
+    color: $checkit-green;
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+    border-bottom: 1px solid $checkit-green;
+    line-height: 0.1em;
+    margin: 10px 0 30px;
+    .linemaker {
+        padding: 0px 10px 15px 10px;
+        background: $checkit-background-base;
+    }
+}
+
+.history {
+    .records {
+        .checkit-list-light {
+            background-color: $checkit-list-light;
+        }
+        .checkit-list-dark {
+            background-color: $checkit-list-dark;
+        }
+        .record {
+            height: 60px;
+            padding: 10px;
+            .record-type {
+                font-size: 22px;
+                padding-bottom: 5px;
+                text-align: center;
+            }
+            .record-date {
+                width: 50%;
+                font-size: 18px;
+                float: left;
+                text-align: left;
+            }
+            .record-name {
+                width: 50%;
+                font-size: 18px;
+                float: right;
+                text-align: right;
+            }
+            .checked-out-by {
+                color: $checkit-subcolor
+            }
+        }
+        .largeRecord {
+            @extend .record;
+            height: 90px;
+        }
+        .separate-line {
+            border-color: $checkit-green;
+        }
+    }
+}

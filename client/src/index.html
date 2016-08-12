@@ -1,0 +1,60 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<!doctype html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <title>checkitBlueoak</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; img-src 'self' data: blob: https://placehold.it https://placeholdit.imgix.net; style-src 'self' 'unsafe-inline';
+          script-src 'self' https://apis.google.com http://localhost:* 'unsafe-inline' 'unsafe-eval'" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- For Google OAuth ::: DON'T DEFER/ASYNC NEEDED FOR SILENTLOGIN -->
+    <script src="https://apis.google.com/js/platform.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 10]>
+      <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div snap-drawer="right">
+        <div id="snapMenu" ui-view="menu" class="menu-body"></div>
+    </div>
+    <div class="snap-content" snap-content>
+        <!-- <div class="grid-block layout-body vertical"> -->
+        <div ui-view="header" class="header-view"></div>
+        <div class="view-wrapper animated bounceIn">
+            <div id="wrapper" class="primary-view" ui-view="content" ng-class="getAppSlide()"></div>
+        </div>
+        <!--  </div> -->
+    </div>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- run `gulp inject` to automatically populate bower script dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <!-- js files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the header view.
+ */
+
+.header-view {
+    height: $header-height;
+    background-color: #515151;
+
+    .row {
+    	height:100%;
+        &.header {
+        	font-size: 30px;
+        	color: $checkit-green;
+            .left, .right, .title {
+                height: 100%;
+            }
+
+            .left {
+                .menu-back {
+                    @include beflexible;
+                    align-items: center;
+                    padding-left: 8px;
+                    height: 100%;
+                    width: 100%;
+
+                    img {
+                        height: 24px;
+                        width: 26px;
+                    }
+                }
+            }
+
+            .title {
+                .text-title {
+                	font-weight: 300;
+                	text-align: center;
+                    padding-top: 5px;
+                }
+
+                .image-title {
+                	@include relative-center;
+                    width: 103px;
+                    height: 29px;
+                }
+            }
+
+            .right {
+                position: relative;
+                padding-right: 10px;
+                @include beflexible;
+                align-items: center;
+                justify-content: flex-end;
+
+                .menu-burger {
+                    z-index: 0;
+                    width: 39px;
+                    height: 24px;
+                }
+
+                .indicator {
+                    position: absolute;
+                    bottom: 6px;
+                    right: 8px;
+                    z-index: 2;
+                    @include beflexible;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    background-color: $checkit-red;
+                    color: $checkit-white;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .no-click-zone {
+
+        background-color: rgba(0, 0, 0, 0.3);
+    	opacity: 1;
+
+    	&.ng-hide {
+    		opacity: 0;
+    	}
+
+    	&.ng-hide-add, &.ng-hide-remove {
+    		transition: all 0.25s linear;
+    	}
+
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        z-index: 1000;
+    }
+}

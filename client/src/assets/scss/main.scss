@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ */
+
+@include foundation-everything(true);
+@include motion-ui-transitions;
+body {
+    background-color: $checkit-background-menu;
+    line-height: 1;
+    color: $checkit-white;
+}
+
+.dangerzone {
+    color: $checkit-red;
+}
+
+.editing {
+    border: 0px;
+    box-shadow: inset 0px 0px 0px 1px $checkit-white;
+}
+
+.noedit {
+    border: 0px;
+    padding: 0px;
+}
+
+.owner-text {
+    color: $checkit-blue;
+}
+
+.checkit-text {
+    color: $checkit-green;
+}
+
+.subtext-color {
+    color: $checkit-subcolor;
+}
+
+.checkit-input {
+    background-color: transparent;
+    padding: 5px;
+    border: solid $checkit-subcolor 2px;
+    white-space: nowrap;
+    overflow: visible;
+    color: $checkit-white;
+    font-size: 20px;
+    flex: 1 0 100%;
+}
+::-webkit-input-placeholder {
+    color: $checkit-subcolor;
+}
+
+$header-height: 44px;

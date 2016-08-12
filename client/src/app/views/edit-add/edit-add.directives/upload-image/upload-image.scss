@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the add upload image directive.
+ */
+
+upload-image {
+    .uploader {
+        @include beflexible;
+        @include heightbyvh(28%);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        .upload-icon {
+            pointer-events: none;
+            text-align: center;
+            position: absolute;
+            font-size: 25px;
+            top: calc(50% - 10px);
+            width: 100%;
+            i {
+                width: 100%;
+            }
+        }
+        img {
+            max-height: 75%;
+            order: 1;
+            flex: 0 0 auto;
+        }
+    }
+}

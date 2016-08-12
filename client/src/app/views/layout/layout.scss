@@ -1,0 +1,157 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the layout module.
+ */
+
+body {
+    overflow: hidden;
+    background-color: $checkit-background-base;
+
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateZ(0);
+   -moz-transform: translateZ(0);
+   -ms-transform: translateZ(0);
+   -o-transform: translateZ(0);
+   transform: translateZ(0);
+}
+
+.no-padding {
+    padding: 0;
+}
+
+a {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+/* .grid-frame {
+    -moz-box-shadow: 0 0 1rem #000;
+    -webkit-box-shadow: 0 0 1rem #000;
+    box-shadow: 0 0 1rem #000;
+    height: 100vh;
+} */
+
+.snap-drawers {
+	background-color: $checkit-background-menu;
+}
+
+.nested-view {
+    width: 100%;
+    height: 100%;
+}
+
+.primary-view {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $checkit-background-base;
+
+     &.ng-enter, &.ng-leave {
+        position: absolute;
+        width: 100%;
+        overflow-x: hidden;
+
+    }
+
+    &.ng-enter-active {
+        &.slideInRight {
+            animation: slideInRight 0.20s;
+        }
+        &.slideInLeft {
+            animation: slideInLeft 0.20s;
+        }
+    }
+    &.ng-leave {
+        &.slideOutLeft {
+            animation: slideOutLeft 0.30s;
+            //z-index: -1;
+        }
+        &.slideOutRight {
+            animation: slideOutRight 0.30s;
+            //z-index: -1;
+        }
+    }
+}
+
+.view-wrapper {
+    //width: 100%;
+    position: relative;
+    height: calc(100% - #{$header-height});
+    overflow: hidden;
+    &.layout-body {
+        overflow: hidden;
+        height: 100vh;
+    }
+}
+
+
+/**
+ *
+ * iScroll styles
+ *
+ */
+
+#scroller {
+    //padding-bottom: 60px;
+}
+
+#pullDown {
+    padding: 0.5rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+    transition: 0.25s;
+    &.flip,
+    &.loading {
+        font-size: 2.5rem;
+    }
+    .pullDownLabel {
+        height: 3rem;
+        line-height: 3rem;
+        border-bottom: 1px solid #ccc;
+    }
+}
+
+//Variables from foundation, using to override styles.
+$menu-member-border: 1px solid $checkit-background-base;
+//Title bar override used for main header and for snap menu header
+.top-bar {
+    background: none;
+    &.primary {
+        height: 44px;
+        padding: 0;
+        color: $checkit-green;
+        background: none;
+        background-color: inherit;
+        font-size: 30px;
+        border-bottom: none;
+        width: 100%;
+    }
+    .title {
+        font-weight: 300;
+        font-style: normal;
+    }
+    .fa {
+        width: 3rem;
+        height: 3rem;
+        line-height: 3rem;
+        text-align: center;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+[ng-switch] {
+    width: 100%;
+    height: 100%;
+    [ng-switch-when],
+    [ng-switch-default] {
+        width: 100%;
+        height: 100%;
+    }
+}

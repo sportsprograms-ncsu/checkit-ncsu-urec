@@ -1,0 +1,13 @@
+delete:
+  description: 'Clears the servers session data, unauthenticating the user
+
+    '
+  operationId: logout
+  responses:
+    '200': {description: successfully cleared user's server session}
+    default:
+      description: unexpected error
+      schema: {$ref: '../definitions/DefaultError.yaml'}
+  summary: Logout with the Server
+  tags: [Auth]
+x-handler: auth

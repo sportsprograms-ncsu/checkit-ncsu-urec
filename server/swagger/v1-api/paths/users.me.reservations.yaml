@@ -1,0 +1,20 @@
+get:
+  description: 'Returns an array of the currently signed in user''s `active_reservations`
+
+    '
+  operationId: getUserReservations
+  produces: [application/json]
+  responses:
+    '200':
+      description: returns an array of the user's `active_reservations`
+      schema: {$ref: '../definitions/MyActiveReservations.yaml'}
+    '401':
+      description: attempted to get user's `active_reservations` before authorization
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    default:
+      description: unexpected error
+      schema: {$ref: '../definitions/DefaultError.yaml'}
+  summary: User Reservations
+  tags: [Users]
+  x-middleware: [auth.authenticateHandler]
+x-handler: users

@@ -1,0 +1,58 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<!--Buttons for the attribute types-->
+<div class="attribute-types">
+    <div class="new-attribute-button">
+        <button class="checkit-button add-button" ng-click="addAttributesCtrl.changeAttributeType('string')" ng-class="{inactive: !addAttributesCtrl.active.string}" type="button">
+            <i class="fa fa-comment"></i>
+        </button>
+    </div>
+    <div class="new-attribute-button">
+        <button class="checkit-button add-button" ng-click="addAttributesCtrl.changeAttributeType('list')" ng-class="{inactive: !addAttributesCtrl.active.list}" type="button">
+            <i class="fa fa-list-ul"></i>
+        </button>
+    </div>
+</div>
+<!--Actual content-->
+<div class="adding-fields" ng-switch on="addAttributesCtrl.attributeType">
+    <!--String-->
+    <div ng-switch-when="string" class="string-attribute-add">
+        <label>Title:</label>
+        <input class="input-box" placeholder="add a title for the new attribute..." ng-model="addAttributesCtrl.newTitle.string" />
+        <hr>
+        <label>Value:</label>
+        <input class="input-box" placeholder="add a value for the new attribute..." ng-model="addAttributesCtrl.newValue.string" />
+        <hr>
+        <!--Button to save the attribute-->
+        <button type="button" class="checkit-button add-attribute-button" ng-click="addAttributesCtrl.addAttribute('string')" ng-disabled="!addAttributesCtrl.newTitle.string || !addAttributesCtrl.newValue.string">
+            add attribute
+        </button>
+    </div>
+    <!--List-->
+    <div ng-switch-when="list" class="list-attribute-add">
+        <label>Title:</label>
+        <input class="input-box" ng-model="addAttributesCtrl.newTitle.array" placeholder="add a title for the new attribute..." />
+        <hr>
+        <!--list of attributes-->
+        <label>Values:</label>
+        <ul class="attribute-list">
+            <li ng-repeat="listitem in addAttributesCtrl.newValue.array track by $index">
+                {{listitem}}
+            </li>
+        </ul>
+        <!--textbox for new attribute-->
+        <input type="text" ng-model="addAttributesCtrl.newValue.arrayValue" class="new-accessory" placeholder="Add a new value..." />
+        <button type="button" class="checkit-button add-button" ng-click="addAttributesCtrl.addToNewList()" ng-disabled="!addAttributesCtrl.newValue.arrayValue">
+            <i class="fa fa-plus"></i>
+        </button>
+        <hr>
+        <!--Button to save the attribute-->
+        <button type="button" class="checkit-button add-attribute-button" ng-click="addAttributesCtrl.addAttribute('array')" ng-disabled="!addAttributesCtrl.newTitle.array || noListItemsAdded()">
+            Add attribute
+        </button>
+    </div>
+</div>
+<hr>

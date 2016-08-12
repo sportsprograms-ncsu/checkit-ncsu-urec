@@ -1,0 +1,132 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the add attribute directive.
+ */
+
+add-attributes {
+	.attribute-types {
+		@include beflexible;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-around;
+		.new-attribute-button {
+			margin: 10px;
+			flex: 0 1 20%;
+			padding: 5px;
+			font-size: 25px;
+			vertical-align: top;
+			button {
+				width: 100%;
+				font-size: 25px;
+				vertical-align: top;
+			}
+			.inactive {
+				border-color: $checkit-subcolor;
+				color: $checkit-subcolor;
+			}
+		}
+	}
+	.adding-fields {
+		.string-attribute-add {
+			margin-top: 15px;
+			margin-bottom: 15px;
+			@include beflexible;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-content: space-around;
+			label {
+				background-color: transparent;
+				font-size: 20px;
+				color: $checkit-white;
+				margin-bottom: 7px;
+				flex: 1 0 100%;
+			}
+			.input-box {
+				background-color: transparent;
+				padding: 5px;
+				border: solid $checkit-subcolor 2px;
+				white-space: nowrap;
+				overflow: visible;
+				color: $checkit-white;
+				font-size: 20px;
+				flex: 1 0 100%;
+			}
+			hr {
+				color: $checkit-subcolor;
+				opacity: 0.25;
+				flex: 1 0 100%;
+			}
+		}
+		.list-attribute-add {
+			margin-top: 15px;
+			margin-bottom: 15px;
+			@include beflexible;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-content: space-around;
+			label {
+				background-color: transparent;
+				font-size: 20px;
+				color: $checkit-white;
+				margin-bottom: 7px;
+				flex: 1 0 100%;
+			}
+			.input-box {
+				background-color: transparent;
+				padding: 5px;
+				border: solid $checkit-subcolor 2px;
+				white-space: nowrap;
+				overflow: visible;
+				color: $checkit-white;
+				font-size: 20px;
+				width: 100%;
+				flex: 1 0 100%;
+			}
+			.attribute-list {
+				flex: 1 0 100%;
+			}
+			.new-accessory {
+				background-color: transparent;
+				color: $checkit-white;
+				font-size: 15px;
+				border: solid $checkit-subcolor 2px;
+				border-radius: 4px;
+				flex: 0 1 83%;
+				height: 40px;
+				vertical-align: top;
+			}
+			.add-button {
+				flex: 0 1 14%;
+				font-size: 23px;
+				height: 40px;
+				&:disabled {
+					border-color: $checkit-disabled;
+					color: $checkit-disabled;
+				}
+			}
+			hr {
+				color: $checkit-subcolor;
+				opacity: 0.25;
+				flex: 1 0 100%;
+			}
+		}
+	}
+	.add-attribute-button,
+	.add-attribute-button:focus,
+	.add-attribute-button:hover,
+	.add-attribute-button:active {
+		font-size: 20px;
+		width: 50%;
+		text-align: center;
+		margin-left: 25%;
+		height: 40px;
+		&:disabled {
+			border-color: $checkit-disabled;
+			color: $checkit-disabled;
+		}
+	}
+}

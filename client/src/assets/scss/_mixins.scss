@@ -1,0 +1,67 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ */
+
+@mixin transition($type, $time, $function) {
+	-moz-transition: $type $time $function;
+	-o-transition: $type $time $function;
+    -webkit-transition: $type $time $function;
+    transition: $type $time $function;
+}
+
+@mixin boxShadow($inset, $x, $y, $blur, $spread, $r, $g, $b, $alpha) {
+	@if $inset != '' {
+		-moz-box-shadow: $inset $x $y $blur $spread rgba($r, $g, $b, $alpha);
+		-webkit-box-shadow: $inset $x $y $blur $spread rgba($r, $g, $b, $alpha);
+		box-shadow: $inset $x $y $blur $spread rgba($r, $g, $b, $alpha);
+	} @else {
+		-moz-box-shadow: $x $y $blur $spread rgba($r, $g, $b, $alpha);
+		-webkit-box-shadow: $x $y $blur $spread rgba($r, $g, $b, $alpha);
+		box-shadow: $x $y $blur $spread rgba($r, $g, $b, $alpha);
+	}
+}
+
+@mixin userSelect($value) {
+	-moz-user-select: $value;
+	-webkit-user-select: $value;
+	-ms-user-select: $value;
+}
+
+@mixin boxSizing($type) {
+	-webkit-box-sizing: $type;
+	-moz-box-sizing: $type;
+	box-sizing: $type;
+}
+
+@mixin scrollable-parent ($pad-top, $pad-right, $pad-bottom, $pad-left) {
+    padding: $pad-top $pad-right $pad-bottom $pad-left;
+    height:100%;
+    width: 100%;
+    position: relative;
+}
+
+@mixin scrollable-child {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+@mixin beflexible {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin heightbyvh($percent) {
+    height: ($percent / 100%) * 100vh;
+}
+
+@mixin relative-center {
+	position:relative;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+}

@@ -1,0 +1,26 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<div class="menu-head" snap-toggle="right">
+    <div class="title">
+        checked out:
+    </div>
+</div>
+<div class="menu-list">
+    <div ng-switch on="vm.loadingState">
+        <div loading ng-switch-default></div>
+        <div error ng-switch-when="networkError"></div>
+        <div ng-switch-when="contentSuccess">
+            <ul>
+                <user-reservation ng-repeat="reservation in vm.reservations" content="reservation">
+                </user-reservation>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="menu-footer">
+    <button class="checkit-button" ng-if="vm.isAdmin" ng-click="vm.addDevice()" snap-close>Add a device</button>
+    <button class="checkit-button" ng-click="vm.googleSignOut()" snap-close>Sign out</button>
+</div>

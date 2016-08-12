@@ -1,0 +1,74 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the asset trait directive.
+ */
+
+asset-trait {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    .title {
+        white-space: nowrap;
+        overflow: visible;
+        color: $checkit-white;
+        font-size: 20px;
+        margin-bottom: 7px;
+    }
+    .optionselect {
+        text-align: right;
+        select {
+            font-size: 20px;
+            display: inline;
+            padding-top: 0;
+            padding-bottom: 0;
+            vertical-align: middle;
+            text-align: right;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+        }
+        textarea {
+            padding: 5px;
+            resize: none;
+            height: 100px;
+        }
+        .add-accessory {
+            @include beflexible;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            .new-accessory {
+                background-color: transparent;
+                color: $checkit-white;
+                font-size: 15px;
+                border: solid $checkit-subcolor 2px;
+                border-radius: 4px;
+                flex: 0 1 83%;
+                height: 40px;
+                vertical-align: top;
+            }
+            .add-button {
+                flex: 0 1 14%;
+                font-size: 23px;
+                height: 40px;
+                &:disabled {
+                    border-color: $checkit-disabled;
+                    color: $checkit-disabled;
+                }
+            }
+        }
+        .value {
+            background-color: transparent;
+            color: $checkit-white;
+            text-align: right;
+            font-size: 20px;
+            border: solid $checkit-subcolor 2px;
+        }
+        .list-item {
+            text-align: left;
+            font-size: 20px;
+        }
+    }
+}

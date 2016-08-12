@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the device-info directive.
+ */
+
+info {
+    @include beflexible;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
+    margin-bottom: 15px;
+    &.description {
+        //background-color: purple;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+    .title {
+        white-space: nowrap;
+        overflow: visible;
+        color: $checkit-subcolor;
+        order: 1;
+        flex: 0 0 50%;
+        font-size: 24px;
+        &.longform {
+            align-self: flex-start;
+            flex: 0 0 auto;
+            margin-bottom: 20px;
+        }
+    }
+    .value {
+        text-align: right;
+        order: 2;
+        flex: 0 0 50%;
+        background-color: transparent;
+        &.longform {
+            text-align: left;
+            flex: 0 0 auto;
+            margin-bottom: 15px;
+        }
+    }
+}

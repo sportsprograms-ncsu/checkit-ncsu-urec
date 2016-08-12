@@ -1,0 +1,88 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<!-- Modals -->
+<!-- enter id modal USED ONLY ON WEBSITE VERSION -->
+<!-- Must be in here and not in modals.template.html as it utilizes 'vm' -->
+<div class="reveal large" data-reveal id="enterIdModalDetails">
+    <h1>Input device ID</h1>
+    <input type="text" ng-model="inputValue" placeholder="enter text..." />
+    <div ng-click="vm.scanSuccess({cancelled: false, text: inputValue})">Submit</div>
+    <div data-close style="float: right;">Cancel</div>
+</div>
+<div class="reveal large" data-reveal id="invalidId">
+    <h1 class="error-message">Invalid ID</h1>
+    <div data-close id="tryagain" ng-click="openScanner()">Try another ID</div>
+    <div data-close id="cancel">Cancel</div>
+</div>
+<div class="tiny text-center dialog reveal" data-reveal id="errorModal">
+    <h4 class="error-message">{{err.status }}<br /> {{err.message }}</h4>
+    <div data-close class="secondary button">Okay</div>
+</div>
+<div ng-switch on="vm.loadingState">
+    <div loading ng-switch-default></div>
+    <div ng-click="vm.getData()" error ng-switch-when="networkError"></div>
+    <div ng-switch-when="contentSuccess" class="grid-content details-page">
+        <div class="details-body">
+            <div class="details-content">
+                <device-image image="vm.deviceData.image" type="vm.deviceData.categories.type">
+                    <div ng-if="vm.pageState != 'infoView'">{{vm.deviceData.name}}</div>
+                </device-image>
+                <div ng-switch on="vm.pageState">
+                    <!-- Info View -->
+                    <div ng-switch-when="infoView">
+                        <div class="device-info">
+                            <info ng-repeat="detail in vm.details" ng-class="{'description': $last}" content="detail"></info>
+                        </div>
+                        <device-history device-id="vm.deviceData.id"></device-history>
+                    </div>
+                    <!-- Checkout View -->
+                    <div ng-switch-when="checkoutView">
+                        <div class="checkout-view-container">
+                            <div class="checkout-view row">
+                                <div class="datepicker">
+                                    <div class="title">return date:</div>
+                                    <div class="input-block">
+                                        <input id="htmldatepicker" ng-model="vm.datepicker.returnDate" type="date" />
+                                        <div class="row">
+                                            <div class="date-input"></div>
+                                            <div class="date-image">
+                                                <img class="icon" src="assets/images/calendar_31x31.svg" alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="instruction">Maximum three weeks.</div>
+                                </div>
+                                <!-- Admin only -->
+                                <div class="inputEmail" ng-if="vm.isAdmin">
+                                    <!-- <span class="instruction">Checkout for someone else?</span><input type="checkbox" ng-model="isCheckoutFor"></input> -->
+                                    <div ng-show="!vm.isCheckoutFor" class="fade for-someone-button">
+                                        <button class="checkit-button" ng-click="vm.isCheckoutFor = true">Checkout for someone else?</button>
+                                    </div>
+                                    <div ng-show="vm.isCheckoutFor" class="input-block fade">
+                                        <!-- <div class="title">checkout for:</div> -->
+                                        <input placeholder="Their Pointsource Email" ng-model="vm.checkoutFor.email" />
+                                        <div class="row">
+                                            <div class="email-input"></div>
+                                            <div class="email-image" ng-click="vm.isCheckoutFor = false; vm.checkoutFor.email = null">
+                                                <i class="fa fa-remove"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-switch-when="deleteView">
+                        <device-delete device-id="vm.deviceData.id" device-name="vm.deviceData.name" delete-device="vm.deleteDevice"></device-delete>
+                    </div>
+                    <!--  -->
+                </div>
+            </div>
+        </div>
+        <!-- asset-id="vm.deviceData.id" record-id="vm.deviceData['active_reservations'][0].id"  -->
+        <detail-buttons device-id="vm.deviceData.id" page-state="vm.pageState" delete-device="vm.deleteDevice" button-styles="vm.buttonStyles" check-out-device="vm.checkOutDevice()" start-check-in-out="vm.startCheckInOut()"></detail-buttons>
+    </div>
+</div>

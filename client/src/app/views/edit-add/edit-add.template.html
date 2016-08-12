@@ -1,0 +1,58 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<div class="edit-add-page">
+    <div class="edit-add-body">
+        <form name="editform" novalidate class="body-content" ng-submit="editform.$valid && editAddCtrl.onSubmit()">
+            <div class="header">
+                <strong>{{editAddCtrl.deviceData.name}}</strong></br>
+                {{editAddCtrl.header}}
+                <upload-image exceededSize="editform.file.$error.maxSize" type="editAddCtrl.deviceData.type" image="editAddCtrl.deviceData.image"></upload-image>
+
+                <div class="static-assets">
+                    <!--Title-->
+                    <asset-trait key="title" field-value="editAddCtrl.deviceData.name"></asset-trait>
+                    <!--Type-->
+                    <asset-trait key="type" field-value="editAddCtrl.deviceData.categories.type" input-type="dropdown"></asset-trait>
+                    <!-- OS -->
+                    <asset-trait key="os" field-value="editAddCtrl.deviceData.categories.os.name" input-type="dropdown"></asset-trait>
+                    <!--Version-->
+                    <asset-trait key="version" field-value="editAddCtrl.deviceData.categories.os.version"></asset-trait>
+                    <!--Description-->
+                    <asset-trait key="description" input-type="textarea" field-value="editAddCtrl.deviceData.description"></asset-trait>
+                    <!--Location-->
+                    <asset-trait key="location" field-value="editAddCtrl.deviceData.location.name" input-type="dropdown"></asset-trait>
+                </div>
+
+                 <linemaker ng-click="editAddCtrl.expandAttributes()">{{editAddCtrl.attributeMessage}}</linemaker>
+
+                <div class="dynamic-assets" ng-if="editAddCtrl.showAttributes">
+                    <!--Attributes-->
+                    <div ng-repeat="attribute in editAddCtrl.deviceData.attributes | orderBy:'key'">
+                        <asset-trait delete-attribute="deleteAttribute()" key="{{attribute.key}}" field-value="attribute.value"></asset-trait>
+                    </div>
+                    <!--If there are no attributes-->
+
+                    <div class="no-attribute-message" ng-hide="editAddCtrl.deviceData.attributes.length">
+                        <div>No attributes... yet. Add them below!</div>
+                    </div>
+
+                    <linemaker ng-click="editAddCtrl.addAttributeView()">{{editAddCtrl.addAttributeMessage}}</linemaker>
+
+                    <add-attributes ng-if="editAddCtrl.addAttributeSwitch" add-fn="editAddCtrl.addAttribute(newAttribute)"></add-attributes>
+
+                </div>
+                <div class="edit-add-buttons">
+                    <div class="save-button">
+                        <input type="submit" class="checkit-button" value="Save" />
+                    </div>
+                    <div class="cancel-button">
+                        <input type="button" class="checkit-button" ng-click="$root.back()" value="Cancel" />
+                    </div>
+                </div>
+        </form>
+        </div>
+    </div>
+</div>

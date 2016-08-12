@@ -1,0 +1,34 @@
+post:
+  consumes: [application/json]
+  description: 'Checks an asset for any user
+
+    '
+  operationId: checkoutAssetForUser
+  parameters:
+  - description: The pickup and return dates for the asset to be checked out and checked
+      back in respectively
+    in: body
+    name: body
+    required: true
+    schema:
+      properties:
+        assetID: {description: ID of asset to checkout, type: string}
+        pickup_date: {description: the pickup date of this reservation in ISO format,
+          type: string}
+        return_date: {description: the return date of this reservation in ISO format,
+          type: string}
+        userEmail: {description: The email of the user to check this device out to,
+          type: string}
+  produces: [application/json]
+  responses:
+    '200': {description: successfully checked out asset}
+    '401':
+      description: attempted to check out asset before being signed in
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    default:
+      description: unexpected error
+      schema: {$ref: '../definitions/DefaultError.yaml'}
+  summary: Checkout Asset
+  tags: [Assets, Admin]
+  x-middleware: [auth.authenticateHandler, auth.adminHandler]
+x-handler: assets

@@ -1,0 +1,88 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the list page.
+ */
+
+.list-body {
+    @include scrollable-parent(0, 0, 0, 0);
+    height: 100%;
+}
+.list-animation {
+	animation-duration: 0.5s;
+}
+.assets-wrapper {
+    @include scrollable-child;
+    .assets {
+        .overdue {
+            color: $checkit-white;
+            background-color: $checkit-red;
+        }
+        .checkit-list-light {
+            background-color: $checkit-list-light;
+        }
+        .checkit-list-dark {
+            background-color: $checkit-list-dark;
+        }
+        .asset {
+            height: 90px;
+            .asset-image {
+                padding-left: 20px;
+                @include beflexible;
+                align-items: center;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    max-height: 56px;
+                    max-width: 58px;
+                }
+            }
+            .small-10.columns {
+                padding: 0 20px;
+                @include beflexible;
+                align-items: center;
+                .asset-info {
+                    width: 100%;
+                    font-weight: 300;
+                    .asset-top,
+                    .asset-bottom {
+                        @include beflexible;
+                        width: 100%;
+                    }
+                    .asset-top {
+                        font-size: 22px;
+                        .left {
+                            flex: 1 1 auto;
+                        }
+                        .right {
+                            flex: 0 1 auto;
+                        }
+                        .right:empty {
+                            display: none;
+                        }
+                    }
+                    .asset-bottom {
+                        font-size: 18px;
+                        .left,
+                        .right {
+                            padding-top: 5px;
+                        }
+                        .left {
+                            color: $checkit-list-subcolor;
+                        }
+                        .right {
+                            flex: 1 1 auto;
+                        }
+                    }
+                    .left {
+                        padding-right: 6px;
+                    }
+                    .right {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}

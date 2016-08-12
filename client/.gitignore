@@ -1,0 +1,16 @@
+.DS_Store
+node_modules/
+npm-debug.log
+bower_components/
+coverage/
+.sass-cache/
+cordova/www
+cordova/platforms/*
+UserInterfaceState.xcuserstate
+.tmp/
+dist/
+*.swp
+*.swo
+generated/
+ipa
+apk

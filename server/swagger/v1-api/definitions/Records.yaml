@@ -1,0 +1,6 @@
+properties:
+  amount_checked_out: {type: number}
+  records:
+    items: {$ref: './Record.yaml'}
+    type: array
+type: object

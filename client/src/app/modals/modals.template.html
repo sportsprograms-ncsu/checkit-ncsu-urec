@@ -1,0 +1,28 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<!--Date out of Bounds warning-->
+<div class="reveal large text-center dialog" id="dateWarning" overlay="true" overlay-close="true">
+    <h4 >Date should be <em>at most</em> 3 weeks from now and not before today.</h4>
+    <div data-close class="secondary button">Got it</div>
+</div>
+
+<!--Scanner failed in some way-->
+<div class="reveal large text-center dialog" id="scannerError" overlay="true" overlay-close="true" >
+    <h1 class="error-message">Scanner error</h1>
+    <div data-close class="secondary button">Return</div>
+</div>
+
+<!-- Modal to warn users not to update the os version -->
+<div class="reveal large dialog" id="doNotUpgradeModal">
+    <h3>Please do not upgrade this device's OS</h3>
+    <div data-close style="float: right;">Ok</div>
+</div>
+
+<!-- A user has supplied an incorrect asset title when deleting -->
+<div id="deleteFailedModal" class="reveal large dialog">
+    <h2 class="error-message">Incorrect asset title</h2>
+    <div data-close style="float: right;">Okay</div>
+</div>

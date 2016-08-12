@@ -1,0 +1,2 @@
+items: {$ref: ./Asset.yaml}
+type: array

@@ -1,0 +1,16 @@
+- {description: 'Endpoints to authorize a user to use the app.
+
+    ', name: Auth}
+- {description: 'Endpoints to manipulate asset data.
+
+    ', name: Assets}
+- {description: 'Endpoints to manipulate user data.
+
+    ', name: User}
+- {description: 'Endpoints to manipulate record data.
+
+    ', name: Records}
+
+- {description: 'Endpoints for admin functionality
+
+    ', name: Admin}

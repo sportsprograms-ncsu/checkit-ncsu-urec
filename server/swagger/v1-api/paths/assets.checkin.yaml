@@ -1,0 +1,27 @@
+post:
+  consumes: [application/json]
+  description: 'Checks a single asset out
+
+    '
+  operationId: checkinAsset
+  parameters:
+  - description: The mongo generated assetID of the asset to update
+    in: body
+    name: assetID
+    required: true
+    schema:
+      properties:
+        assetID: {description: ID of asset to checkout, type: string}
+  produces: [application/json]
+  responses:
+    '200': {description: successfully checked out asset}
+    '401':
+      description: attempted to check out asset before being signed in
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    default:
+      description: unexpected error
+      schema: {$ref: '../definitions/DefaultError.yaml'}
+  summary: Checkin Asset
+  tags: [Assets]
+  x-middleware: auth.authenticateHandler
+x-handler: assets

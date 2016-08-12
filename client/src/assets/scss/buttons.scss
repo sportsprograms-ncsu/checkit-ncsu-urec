@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ */
+
+.button {
+	&.expand {
+		width: 100%;
+		display: block;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	&.float-right {
+		margin-right: 0;
+	}
+}
+
+.button-icon-large {
+	.fa {
+		font-size: 64px;
+	}
+}
+
+.checkit-button {
+	&, &:hover, &:focus, &:active {
+		background: none;
+		outline: none;
+
+		width: 87%;
+		height: 50px;
+		padding: 0.5rem 0rem;
+
+		font-size: 32px;
+		font-weight: 200;
+		color: $checkit-green;
+
+		border: 1px solid $checkit-green;
+		border-radius: 4px;
+		background-color: transparent;
+
+	}
+}

@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the device-delete directive.
+ */
+
+device-delete {
+    @include beflexible;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    order: 3;
+    flex: 1 0 auto;
+    margin-top:20px;
+    .instructions_header {
+        text-align: center;
+        font-size: 27px;
+        margin: 20px;
+        color: $checkit-red;
+    }
+    .instructions {
+        text-align: center;
+        margin: 20px;
+        font-size: 20px;
+    }
+    .checkit-input{
+    	width:86%;
+    }
+}

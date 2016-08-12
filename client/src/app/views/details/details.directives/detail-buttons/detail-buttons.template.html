@@ -1,0 +1,52 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<div ng-switch on="detailButtonsCtrl.pageState">
+    <div loading ng-switch-default>
+        {{pageState}}
+    </div>
+    <div ng-switch-when="infoView">
+        <div class="checkout-button" ng-if="detailButtonsCtrl.isAdmin === false">
+            <div class="row">
+                <button class="checkit-button" ng-click="detailButtonsCtrl.startCheckInOut()" ng-disabled="detailButtonsCtrl.buttonStyles.unavailable" ng-class="detailButtonsCtrl.buttonStyles.class"></button>
+            </div>
+        </div>
+        <div class="checkout-button" ng-if="detailButtonsCtrl.isAdmin === true">
+            <div class="row">
+                <!--ng-if="!checkoutView"-->
+                <div class="columns grid-button">
+                    <!-- Font Awesome icons for now; need images -->
+                    <button class="checkit-button edit" ng-click="detailButtonsCtrl.editDevice()">
+                        <i class="fa fa-pencil"></i>
+                        <!--<img class="icon admin-icon" src="assets/images/fi-pencil.svg"/>-->
+                    </button>
+                </div>
+                <div class="small-7 grid-button">
+                    <button class="checkit-button" ng-click="detailButtonsCtrl.startCheckInOut()" ng-class="detailButtonsCtrl.buttonStyles.class"></button>
+                </div>
+                <div class="columns grid-button">
+                    <!-- Font Awesome icons for now; need images -->
+                    <button class="checkit-button delete" ng-click="detailButtonsCtrl.switchView('deleteView')">
+                        <i class="fa fa-trash"></i>
+                        <!--<img class="icon admin-icon" src="assets/images/fi-trash.svg"/>-->
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Date Picker apply-->
+    <div class="simple-button-container" ng-switch-when="checkoutView">
+        <!--ng-if="checkoutView"-->
+        <button class="checkit-button" ng-click="detailButtonsCtrl.switchView('infoView')">Cancel</button>
+        <button class="checkit-button" ng-click="detailButtonsCtrl.checkOutDevice()">Apply</button>
+    </div>
+    <!--Deleting apply-->
+    <div class="simple-button-container" ng-switch-when="deleteView">
+
+            <button class="checkit-button" ng-click="detailButtonsCtrl.deleteDevice.fn()">Delete</button>
+
+            <button class="checkit-button" ng-click="detailButtonsCtrl.switchView('infoView')">Cancel</button>
+    </div>
+</div>

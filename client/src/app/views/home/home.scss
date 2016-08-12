@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the home page.
+ */
+
+.home-body {
+
+	padding: 0;
+	@include scrollable-parent(85px, 0, 0, 0);
+
+	.scan-button-container {
+		width: 100%;
+		height: 85px;
+		@include beflexible;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 0;
+	}
+
+	.asset-types-wrapper {
+		@include scrollable-child;
+
+		.asset-types {
+
+			.asset-type {
+				font-size: 36px;
+				height: 75px;
+				padding: 0 25px;
+				margin-bottom: 12px;
+				background-color: $checkit-category-divs;
+				align-items: center;
+
+				.left {
+					font-weight: 200;
+				}
+
+				.right {
+					text-align: right;
+					img {
+						width: 48px;
+						height: 40px;
+
+						&[ng-src=""] {
+							visibility: hidden;
+						}
+					}
+				}
+			}
+		}
+	}
+}

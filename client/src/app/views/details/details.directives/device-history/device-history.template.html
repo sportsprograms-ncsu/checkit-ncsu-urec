@@ -1,0 +1,52 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<!--Toggle for view-->
+<div id="anchorid"></div>
+<div>
+
+    <linemaker ng-click="historyCtrl.expandHistory()">{{historyCtrl.historyMessage}}</linemaker>
+
+    <!--History repeat-->
+    <div class="history" ng-if="historyCtrl.showHistory">
+        <div ng-switch on="historyCtrl.loadingState">
+        	<div loading ng-switch-default></div>
+    		<div error ng-switch-when="networkError"></div>
+
+            <div ng-switch-when="contentSuccess">
+                <div class="records">
+                    <div ng-repeat="record in historyCtrl.records">
+                        <div ng-if="record.checked_out_by" class="largeRecord" ng-class="($index % 2 === 0) ? 'checkit-list-light': 'checkit-list-dark'">
+                            <div class="record-type">
+                                {{record.type | noscore | capitalize}}
+                            </div>
+                            <div class="record-name">
+                                For {{record.borrower.name.first}} {{record.borrower.name.last}}
+                            </div>
+                            <div class="record-date">
+                                {{historyCtrl.formatDate(record.created)}}
+                            </div>
+                            <div class="record-name checked-out-by">
+                                By {{record.checked_out_by.name.first}} {{record.checked_out_by.name.last}}
+                            </div>
+                        </div>
+                        <div ng-if="!record.checked_out_by" class="record" ng-class="($index % 2 === 0) ? 'checkit-list-light': 'checkit-list-dark'">
+                            <div class="record-type">
+                                {{record.type | noscore | capitalize}}
+                            </div>
+                            <div class="record-name">
+                                {{record.borrower.name.first}} {{record.borrower.name.last}}
+                            </div>
+                            <div class="record-date">
+                                {{historyCtrl.formatDate(record.created)}}
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

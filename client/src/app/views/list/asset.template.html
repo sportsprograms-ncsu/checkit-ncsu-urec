@@ -1,0 +1,41 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<div class="asset row" ng-class="vm.backgroundClass(vm.content.active_reservations[0].end)"
+     ng-click="vm.goToDetails('details', {id: vm.content.id})">
+
+    <div class="asset-image small-2 columns">
+        <img ng-src="{{ vm.addImage() }}"/>
+    </div>
+
+    <div class="small-10 columns">
+        <div class="asset-info">
+            <div class="asset-top">
+                <div class="left">
+                    <span data-fittext data-fittext-max="22"
+                          data-ng-model="vm.content.name">{{ vm.content.name }}</span>
+                </div>
+                <div class="right" ng-if="vm.content.active_reservations[0]"
+                     ng-class="vm.resColor(vm.content.active_reservations[0].borrower.name.first,
+                     vm.content.active_reservations[0].end)">
+                    {{ vm.content.active_reservations[0].end }}
+                </div>
+            </div>
+            <div class="asset-bottom">
+                <div class="left" ng-if="vm.content.categories.os.name || vm.content.categories.os.version">
+                    {{ vm.content.categories.os.name }} {{ vm.content.categories.os.version }}
+                </div>
+                <div class="res_name right" ng-if="vm.content.active_reservations[0]">
+                    <span data-fittext data-fittext-max="18" data-fittext-min="14" data-ng-model="vm.content.name"
+                          ng-class="vm.resColor(vm.content.active_reservations[0].borrower.name.first,
+                          vm.content.active_reservations[0].end)">{{ vm.content.active_reservations[0].borrower.name.first }}
+                        {{ vm.content.active_reservations[0].borrower.name.last }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

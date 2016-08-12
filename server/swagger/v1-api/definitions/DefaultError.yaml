@@ -1,0 +1,3 @@
+properties:
+  message: {description: a brief description of the error, type: string}
+  status: {description: the status code of the error, type: integer}

@@ -1,0 +1,16 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<div name="file" ng-model="file" class="uploader" ngf-select="uploadImgCtrl.updateImage($file)" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-capture="camera" ngf-max-size="5MB" ngf-fix-orientation="true" ngf-resize="{width: 320, height: 120, quality: .8, type: 'image/jpeg', restoreExif: false}" ngf-validate-after-resize="true">
+
+    <span class="form-error" ng-if="uploadImgCtrl.exceededSize">File size cannot exceed 5MB!</span>
+
+    <div class="upload-icon" ng-hide="uploadImgCtrl.exceededSize"><i class="fa fa-upload"></i></div>
+
+    <img image-loader="uploadImgCtrl.onImageLoad($event)" ngf-src="uploadImgCtrl.image" altimg="{{uploadImgCtrl.altImage}}" alt="Upload Image" ng-hide="uploadImgCtrl.exceededSize || !uploadImgCtrl.imageLoaded" />
+
+    <div class="upload-icon" loading ng-if="!uploadImgCtrl.imageLoaded"></div>
+
+</div>

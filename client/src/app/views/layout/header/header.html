@@ -1,0 +1,24 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<div class="row header">
+    <div class="columns left">
+        <div class="menu-back" ng-click="back()" ng-show="vm.showBackArrow">
+            <img src="assets/images/back_26x30.svg"/>
+        </div>
+    </div>
+
+    <div class="small-7 title">
+        <div class="text-title" ng-if="vm.showTitle">{{vm.title}}</div>
+        <img class="image-title" src="assets/images/headerLogo_103x29.svg" ng-if="!vm.showTitle"/>
+    </div>
+
+    <div class="columns right" snap-toggle="right">
+        <img class="menu-burger" src="assets/images/hamburger_39x24.svg"/>
+        <span class="indicator" ng-if="vm.overdueCt">{{vm.overdueCt}}</span>
+    </div>
+</div>
+
+<div class="no-click-zone" ng-show="vm.showNoClick" snap-close></div>

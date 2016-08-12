@@ -1,0 +1,22 @@
+properties:
+  borrower:
+    description: the user associated with this record
+    properties:
+      name:
+        description: the borrower's name
+        properties:
+          id: {description: the userID, type: string}
+          name:
+            properties:
+              first: {type: string}
+              last: {type: string}
+            type: object
+        type: object
+    type: object
+  created: {description: the created date of this record in ISO format, type: string}
+  id: {description: this record's ID, type: string}
+  type:
+    description: the type of record
+    enum: [checked_out, reserved, checked_in, transfered, canceled]
+    type: string
+type: object

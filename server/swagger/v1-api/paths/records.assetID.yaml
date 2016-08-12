@@ -1,0 +1,23 @@
+get:
+  description: 'Returns an array of `records` and the amount of checked out records.
+
+    '
+  operationId: getAssetRecords
+  parameters:
+  - {description: ID of the asset to get records from, in: path, name: assetID, required: true,
+    type: string}
+  produces: [application/json]
+  responses:
+    '200':
+      description: successful return
+      schema: {$ref: '../definitions/Records.yaml'}
+    '401':
+      description: attempted to get `records` before authorization
+      schema: {$ref: '../definitions/AuthorizationError.yaml'}
+    default:
+      description: unexpected error
+      schema: {$ref: '../definitions/DefaultError.yaml'}
+  summary: All Records for a single Asset
+  tags: [Records]
+  x-middleware: auth.authenticateHandler
+x-handler: records

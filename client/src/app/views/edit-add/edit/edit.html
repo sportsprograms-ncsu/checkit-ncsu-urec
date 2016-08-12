@@ -1,0 +1,12 @@
+<!--
+	Copyright (c) 2015-2016 PointSource, LLC.
+	MIT Licensed
+ -->
+
+<div ng-switch on="vm.loadingState">
+	<div loading ng-switch-default></div>
+	<div error ng-switch-when="networkError"></div>
+	<div ng-switch-when="contentSuccess">
+		<edit-add on-submit="vm.editAsset()" device-data="vm.deviceData"></edit-add>
+	</div>
+</div>

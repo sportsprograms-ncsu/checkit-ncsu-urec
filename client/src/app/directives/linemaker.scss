@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * SCSS for the linemaker directive
+ */
+
+.linemaker-container {
+	order: 2;
+	color: $checkit-green;
+	text-align: center;
+	font-size: 18px;
+	width: 100%;
+	border-bottom: 1px solid $checkit-green;
+	line-height: 0.1em;
+	margin: 10px 0 30px;
+	.linemaker {
+		padding: 0 10px;
+		background: $checkit-background-base;
+	}
+}

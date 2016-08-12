@@ -1,0 +1,43 @@
+{
+  "name": "checkit-blueoak",
+  "version": "2.0.0",
+  "license": "MIT",
+  "authors": [
+    "PointSource LLC <github@pointsource.com>"
+  ],
+  "dependencies": {
+    "angular": "1.4.x",
+    "angular-mocks": "1.4.x",
+    "angular-touch": "1.4.x",
+    "angular-snap": "~1",
+    "ngCordova": "latest",
+    "font-awesome": "fontawesome#~4.5.0",
+    "iscroll": "~4.2",
+    "moment": "~2.10.3",
+    "ngFitText": "~3.3.3",
+    "ngSmoothScroll": "~2.0.0",
+    "ng-file-upload": "~10.1.14",
+    "angular-ui-router": "^0.2.18",
+    "angular-animate": "^1.5.1",
+    "foundation-sites": "6.2.x",
+    "motion-ui": "^1.2.2",
+    "animate.css": "^3.5.1"
+  },
+  "resolutions": {
+    "angular": "~1.4"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "./css/font-awesome.css",
+        "./fonts/*"
+      ]
+    },
+    "motion-ui": {
+      "main": [
+        "./src/*",
+        "./dist/*"
+      ]
+    }
+  }
+}

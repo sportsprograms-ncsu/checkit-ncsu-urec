@@ -1,0 +1,73 @@
+/* Copyright © 2015-2016 PointSource, LLC. All rights reserved. */
+//Default config for my app
+{
+    "express": {
+        "port": "3000",
+        "middleware": [
+            "express-monitor",
+            "csrf",
+            "cors",
+            "bodyParser",
+            "session"
+        ],
+        "middleware$": [
+            "errors",
+            "authenticate"
+        ]
+    },
+    "cluster": {
+        "maxWorkers": 1
+    },
+    "logger": {},
+    //Add allowed origins here. This usually fixes CORS issues
+    "csrf": {
+        "credentials": true,
+        "allowedOrigins": [
+            "http://localhost:3001"
+        ]
+    },
+    "cors": {
+        "credentials": true,
+        "origin": [
+            "http://localhost:3001"
+        ]
+    },
+    "session": {
+        "keys": [
+            "TuuO6f9vpf"
+        ]
+    },
+    "bodyParser": {
+        "json": {
+            "limit": "10mb"
+        }
+    },
+    "monitor": {
+        "host": "localhost",
+        "debug": true
+    },
+    "mongodb": { //Mongo db credentials
+        "isTestDB": false, //this would be false in production or testing the actual database
+        "isQADB": true, //this would be false in production or testing the actual database
+        "host": "", //The host of the mongo db
+        "port": "", //Mongo port
+        "db": "", //The database
+        "username": "", //Database username
+        "pwd": "" //database encrypted password
+    },
+    "google": {
+        "clientSecret": "", // the google client secret
+        "clientId": "" // the google client id
+    },
+    "assetLocations": {
+        "Raleigh": {
+            "id": 697673324
+        },
+        "Chicago": {
+            "id": 409625272
+        }
+    },
+    //This is used during the authentication phase to only allow users from a certain company
+    //Leave this field empty to allow any domain
+    "companyDomains": []
+}

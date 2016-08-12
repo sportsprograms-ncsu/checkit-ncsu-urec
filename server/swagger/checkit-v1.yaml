@@ -1,0 +1,26 @@
+basePath: /api/v1
+definitions:
+  Asset: {$ref: v1-api/definitions/Asset.yaml}
+  Assets: {$ref: v1-api/definitions/Assets.yaml}
+  MyActiveReservations: {$ref: v1-api/definitions/MyActiveReservations.yaml}
+  NewAsset: {$ref: v1-api/definitions/NewAsset.yaml}
+  Record: {$ref: v1-api/definitions/Record.yaml}
+  Records: {$ref: v1-api/definitions/Records.yaml}
+host: localhost:3000
+info: {description: Device Check Out, title: CheckIT API, version: 1.3.0, license: {name: "The MIT License (MIT)", url: "https://opensource.org/licenses/MIT"}}
+paths:
+  /admin/assets: {$ref: v1-api/paths/admin.assets.yaml}
+  /admin/assets/checkout: {$ref: v1-api/paths/admin.assets.checkout.yaml}
+  /admin/assets/{assetID}: {$ref: v1-api/paths/admin.assets.assetID.yaml}
+  /assets: {$ref: v1-api/paths/assets.yaml}
+  /assets/checkin: {$ref: v1-api/paths/assets.checkin.yaml}
+  /assets/checkout: {$ref: v1-api/paths/assets.checkout.yaml}
+  /assets/{assetID}: {$ref: v1-api/paths/assets.assetID.yaml}
+  /auth/login: {$ref: v1-api/paths/auth.login.yaml}
+  /auth/logout: {$ref: v1-api/paths/auth.logout.yaml}
+  /records/{assetID}: {$ref: v1-api/paths/records.assetID.yaml}
+  /users/me/reservations: {$ref: v1-api/paths/users.me.reservations.yaml}
+produces: [application/json]
+schemes: [http, https]
+swagger: '2.0'
+tags: {$ref: v1-api/Tags.yaml}

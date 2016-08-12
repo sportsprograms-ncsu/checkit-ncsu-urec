@@ -1,0 +1,94 @@
+/*
+ * Copyright (c) 2015-2016 PointSource, LLC.
+ * MIT Licensed
+ *
+ * Scss defined for the detail-buttons directive.
+ */
+
+detail-buttons {
+    padding: 0 15px;
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    @include heightbyvh(23%);
+    width: 100%;
+    background-color: $checkit-background-base;
+    border-top: 1px solid $checkit-divider;
+    -webkit-box-shadow: 0 -5px 15px 5px $checkit-background-base;
+    -moz-box-shadow: 0 -5px 15px 5px $checkit-background-base;
+    box-shadow: 0 -5px 15px 5px $checkit-background-base;
+    @include beflexible;
+    align-items: center;
+    [ng-switch]{
+    	height: auto;
+    }
+    .checkout-button,
+    .simple-button-container {
+        @include beflexible;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+    }
+    .checkout-button {
+    	height: auto;
+        margin: 0px;
+        .grid-button {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        .row {
+        	width: 100%;
+        }
+        .checkit-button {
+        	min-width: initial;
+            width: 100%;
+            .admin-icon {
+                height: 35px;
+                width: 35px;
+                color: white;
+            }
+            &.checkout:after {
+                content: 'Checkout';
+            }
+            &.checkin:after {
+                content: 'Check-In';
+            }
+            &.edit:after {}
+            &.delete:after {}
+            &.checkin,
+            &.successIn {
+                border-color: $checkit-blue;
+                color: $checkit-blue;
+            }
+            &.button-transition {
+                -ms-transition: 1s;
+                -moz-transition: 1s;
+                -webkit-transition: 1s;
+                transition: 1s;
+            }
+            &.successOut:after {
+                font-size: 18px;
+                content: 'Checkout Successful!';
+            }
+            &.successIn:after {
+                font-size: 18px;
+                content: 'Checkin Successful!';
+            }
+            &[disabled] {
+                border-color: $checkit-disabled;
+                color: $checkit-disabled;
+            }
+        }
+    }
+    .simple-button-container {
+        .checkit-button {
+            margin: 0px 10px;
+        }
+    }
+    .simple-button-container,
+    .checkout-button {
+        .checkit-button {
+            font-size: 24px;
+        }
+    }
+}
