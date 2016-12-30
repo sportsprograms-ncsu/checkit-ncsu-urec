@@ -62,17 +62,13 @@
         vm.addImage = function() {
             var imgUrl;
 
-            if (vm.content.categories.type === 'phone') {
-                imgUrl = 'assets/images/phone_25x42.svg';
-            } else if (vm.content.categories.type === 'tablet') {
+            if (vm.content.categories.type === 'tablet') {
                 imgUrl = 'assets/images/tablet_40x45.svg';
-            } else if (vm.content.categories.type === 'laptop') {
-                imgUrl = 'assets/images/laptop_56x38.svg';
-            } else if (vm.content.categories.type === 'camera') {
-                imgUrl = 'assets/images/camera_45x34.svg';
+            } else if (vm.content.categories.type === 'radio') {
+                imgUrl = 'assets/images/radio_32x40.svg';
+            } else if (vm.content.categories.type === 'key') {
+                imgUrl = 'assets/images/key_30x30.svg';
             } else if (vm.content.categories.type === 'misc') {
-                imgUrl = 'assets/images/circle-thin-checkit-green.svg';
-            } else if (vm.content.categories.type === 'watch') {
                 imgUrl = 'assets/images/circle-thin-checkit-green.svg';
             } else {
                 imgUrl = 'assets/images/circle-thin-checkit-green.svg';

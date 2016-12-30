@@ -62,9 +62,6 @@
     "assetLocations": {
         "Raleigh": {
             "id": 697673324
-        },
-        "Chicago": {
-            "id": 409625272
         }
     },
     //This is used during the authentication phase to only allow users from a certain company

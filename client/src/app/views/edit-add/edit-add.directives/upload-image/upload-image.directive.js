@@ -48,22 +48,16 @@
         if (uploadImgCtrl.image === '' || !uploadImgCtrl.image) {
             var imgUrl;
             switch (uploadImgCtrl.type) {
-                case 'phone':
-                    imgUrl = 'assets/images/phone_25x42.svg';
-                    break;
                 case 'tablet':
                     imgUrl = 'assets/images/tablet_40x45.svg';
                     break;
-                case 'laptop':
-                    imgUrl = 'assets/images/laptop_56x38.svg';
+                case 'radio':
+                    imgUrl = 'assets/images/radio_32x40.svg';
                     break;
-                case 'camera':
-                    imgUrl = 'assets/images/camera_45x34.svg';
+                case 'key':
+                    imgUrl = 'assets/images/key_30x30.svg';
                     break;
                 case 'misc':
-                    imgUrl = 'assets/images/circle-thin-checkit-green.svg';
-                    break;
-                case 'watch':
                     imgUrl = 'assets/images/circle-thin-checkit-green.svg';
                     break;
                 default:
