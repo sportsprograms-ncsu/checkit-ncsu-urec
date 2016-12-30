@@ -11,8 +11,7 @@
             "session"
         ],
         "middleware$": [
-            "errors",
-            "authenticate"
+            "errors"
         ]
     },
     "cluster": {
@@ -66,5 +65,5 @@
     },
     //This is used during the authentication phase to only allow users from a certain company
     //Leave this field empty to allow any domain
-    "companyDomains": []
+    "companyDomains": ["ncsu.edu"]
 }
