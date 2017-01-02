@@ -200,10 +200,10 @@
                 // For the modal; the scanner can't return a blank string
                 if (angular.isUndefined(scanObj) || scanObj.text === '') {
                     ModalService.get('invalidId').open();
-                } else if (scanObj.text !== vm.deviceData.id) {
+                } else if (scanObj.text !== vm.deviceData.passcode) {
                     ModalService.get('invalidId').open();
                 } else {
-                    ValidationService.newValidationObject(scanObj.text, moment().toISOString());
+                    ValidationService.newValidationObject(vm.deviceData.id, moment().toISOString());
                     vm.startCheckInOut();
                 }
             }
@@ -321,16 +321,16 @@
                 button.class = 'checkout';
                 return button;
             } else if (activeReservation) {
-            	if (vm.isAdmin){
-                	button.class = 'checkin';
-            	} else { //User is not admin
-            		button.unavailable = true;
+                if (vm.isAdmin){
+                    button.class = 'checkin';
+                } else { //User is not admin
+                    button.unavailable = true;
                     console.log(vm.deviceData['active_reservations'][0]);
-                	button.class = 'checkin';
+                    button.class = 'checkin';
                     if(vm.deviceData['active_reservations'][0].borrower.name.first === 'You'){
-            		    button.unavailable = false;
+                        button.unavailable = false;
                     }
-            	}
+                }
                 return button;
             } else {
                 return {
@@ -392,7 +392,7 @@
 
         /**
          * Function to format the borrower part of the info page view
-    	 * @param state -- the current state of the asset
+         * @param state -- the current state of the asset
          * @param activeReservation -- the asset's active reservation
          * @private
          */
