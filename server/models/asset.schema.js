@@ -101,6 +101,11 @@ var AssetSchema = new Schema({
         required: true,
         index: true
     },
+    passcode: {
+        type: String,
+        default: '000000',
+        required: true
+    },
     created: {
         type: Date,
         default: Date.now,
