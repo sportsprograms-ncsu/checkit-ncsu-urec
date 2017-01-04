@@ -142,6 +142,7 @@ var _formatAssets = function(assets, condensed, callback) {
                         if (condensed) {
                             returnedAsset = {
                                 id: assets[k]._id,
+                                passcode: assets[k].passcode,
                                 name: assets[k].name,
                                 state: assets[k].status,
                                 categories: assets[k].categories,
@@ -150,6 +151,7 @@ var _formatAssets = function(assets, condensed, callback) {
                         } else {
                             returnedAsset = {
                                 id: assets[k]._id,
+                                passcode: assets[k].passcode,
                                 name: assets[k].name,
                                 description: assets[k].description,
                                 state: assets[k].status,
