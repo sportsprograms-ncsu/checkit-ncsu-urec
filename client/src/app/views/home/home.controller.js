@@ -60,21 +60,17 @@
 
         //In the future, this initial array will be generated with a GET
         vm.categories = [{
-            name: 'PHONE',
-            image: 'assets/images/phone_25x42.svg',
-            value: 'phone'
-        }, {
-            name: 'TABLET',
+            name: 'iPADS',
             image: 'assets/images/tablet_40x45.svg',
             value: 'tablet'
         }, {
-            name: 'LAPTOP',
-            image: 'assets/images/laptop_56x38.svg',
-            value: 'laptop'
+            name: 'RADIOS',
+            image: 'assets/images/radio_32x40.svg',
+            value: 'radio'
         }, {
-            name: 'CAMERA',
-            image: 'assets/images/camera_45x34.svg',
-            value: 'camera'
+            name: 'KEYS',
+            image: 'assets/images/key_30x30.svg',
+            value: 'key'
         }, {
             name: 'MISC',
             image: 'assets/images/circle-thin-checkit-green.svg',

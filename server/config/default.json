@@ -11,8 +11,7 @@
             "session"
         ],
         "middleware$": [
-            "errors",
-            "authenticate"
+            "errors"
         ]
     },
     "cluster": {
@@ -62,12 +61,9 @@
     "assetLocations": {
         "Raleigh": {
             "id": 697673324
-        },
-        "Chicago": {
-            "id": 409625272
         }
     },
     //This is used during the authentication phase to only allow users from a certain company
     //Leave this field empty to allow any domain
-    "companyDomains": []
+    "companyDomains": ["ncsu.edu"]
 }

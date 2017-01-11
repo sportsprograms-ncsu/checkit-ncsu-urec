@@ -8,9 +8,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
-var types = 'phone tablet laptop webcam camera projector watch'.split(' ');
-var locations = 'Raleigh Chicago'.split(' ');
-var locationIds = [697673324, 409625272];
+var types = 'tablet radio key misc'.split(' ');
+var locations = 'Raleigh'.split(' ');
+var locationIds = [697673324];
 var statuses = 'available in_use in_repair upgrading maintenance retired missing'.split(' ');
 var OSnames = 'Android iOS Windows WatchOS FireOS OSX'.split(' ');
 var attrTypes = 'string array object integer'.split(' ');
@@ -100,6 +100,11 @@ var AssetSchema = new Schema({
         default: statuses[0],
         required: true,
         index: true
+    },
+    passcode: {
+        type: String,
+        default: '000000',
+        required: true
     },
     created: {
         type: Date,
