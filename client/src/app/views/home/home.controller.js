@@ -14,15 +14,6 @@
         .controller('HomeController', HomeController);
 
     HomeController.$inject = [
-        '$rootScope',
-        '$window',
-        '$timeout',
-        '$document',
-        'ValidationService',
-        'UtilService',
-        '$cordovaBarcodeScanner',
-        'ModalService',
-        'moment'
     ];
 
     /**
@@ -30,33 +21,11 @@
      * @name HomeController
      * @description
      * The home page controller function.
-     * @param $rootScope
-     * @param $window
-     * @param $timeout
-     * @param $document
-     * @param ValidationService
-     * @param UtilService
-     * @param $cordovaBarcodeScanner
-     * @param ModalService
-     * @param moment
      * @constructor
      */
-    function HomeController(
-        $rootScope,
-        $window,
-        $timeout,
-        $document,
-        ValidationService,
-        UtilService,
-        $cordovaBarcodeScanner,
-        ModalService,
-        moment) {
+    function HomeController() {
 
         var vm = this;
-
-        ModalService.add('enterIdModal');
-        ModalService.add('invalidId');
-        ModalService.compile();
 
         //In the future, this initial array will be generated with a GET
         vm.categories = [{
@@ -86,71 +55,5 @@
             image: '',
             value: 'all'
         });
-
-        vm.isOnDevice = UtilService.isOnDevice();
-
-        /**
-         * Opens the scanner
-         *
-         * TODO $rootScope is not preferred here
-         * instead in the future use a service/factor for scanner operations
-         */
-        $rootScope.openScanner = function() {
-
-            if (vm.isOnDevice) {
-                //run scanner
-                $cordovaBarcodeScanner.scan()
-                    .then(function(barcodeData) {
-                        vm.scanSuccess(barcodeData);
-                    }, function(error) {
-                        vm.scanFail(error);
-                    });
-            } else {
-                ModalService.get('enterIdModal').open();
-            }
-        };
-
-        /**
-         * Called when the scanner successfully scans an object
-         * Verifies that the String scanned is a valid Asset ID, retrieves
-         * that asset, and creates a validation object around that device
-         * @param scanObj -> the asset object from the scanner
-         * @private
-         */
-        vm.scanSuccess = function(scanObj) {
-
-            if (!scanObj.cancelled) {
-                // Check to see if the device exists
-                ValidationService.checkForAsset(scanObj.text)
-                    .then(function() {
-                        // Create the object for the validated record
-                        ValidationService.newValidationObject(scanObj.text, moment().toISOString());
-                        vm.goTo('details', { id: scanObj.text });
-                    }, function() {
-                        // Opens an invalidId modal to try again or cancel
-                        ModalService.get('invalidId').open();
-                    });
-            }
-        };
-
-        /**
-         * Called when the scanner cannot scan the object.
-         * Not a common error, but may happen if the scanner is malfunctioning
-         * @param error
-         */
-        vm.scanFail = function(error) {
-            UtilService.logError('home', 'HomeController', 'Scan failed ' + error);
-            ModalService.get('scannerError').open();
-        };
-
-        /**
-         * Navigates to the details page for that particular asset.
-         * Called after a scan is successful and asset exists.
-         * @param state -> The details page
-         * @param params -> The ID of the asset
-         */
-        vm.goTo = function(state, params) {
-            $rootScope.navigate(state, params);
-        };
     }
 })();
