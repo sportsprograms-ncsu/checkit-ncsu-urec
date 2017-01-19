@@ -225,27 +225,31 @@
          *
          */
         vm.checkOutDevice = function() {
-            if (vm.deviceData.categories.type === 'laptop') { //allow indefinite checkouts to laptops
-                UtilService.logInfo('details', 'detailsContainer', 'Calling AssetService.checkoutAsset');
-                //Hide buttons until operation done
-                vm.loadingState = '';
-                AssetService.checkoutAsset(vm.deviceData.id, vm.datepicker.returnDate, vm.checkoutFor.email)
-                    .then(_checkOutSuccess, _checkOutFail);
+            var date = moment(vm.datepicker.returnDate);
+            //get the current moment then set it to the same time as the return date.
+            var now = moment().hour(date.hours())
+                .minute(date.minutes())
+                .second(date.seconds())
+                .millisecond(date.milliseconds());
+
+            if (vm.deviceData.categories.type === 'tablet' || vm.deviceData.categories.type === 'radio') {
+                // Require tablets (iPads) and radios to only be checked out for the current date
+                if (date.isSame(now)) {
+                    UtilService.logInfo('details', 'detailsContainer', 'Calling AssetService.checkoutAsset');
+                    //Hide buttons until operation done
+                    vm.loadingState = '';
+                    AssetService.checkoutAsset(vm.deviceData.id, vm.datepicker.returnDate, vm.checkoutFor.email)
+                        .then(_checkOutSuccess, _checkOutFail);
+                } else {
+                    ModalService.get('dateWarning').open();
+                }
             } else {
-                var date = moment(vm.datepicker.returnDate);
-                //get the current moment then set it to the same time as the return date.
-                var now = moment().hour(date.hours())
-                    .minute(date.minutes())
-                    .second(date.seconds())
-                    .millisecond(date.milliseconds());
-                var future = now.clone().add(3, 'weeks');
+                var future = now.clone().add(1, 'days');
                 if ((date.isBefore(future) && date.isAfter(now)) || date.isSame(future) || date.isSame(now)) {
                     UtilService.logInfo('details', 'detailsContainer', 'Calling AssetService.checkoutAsset');
                     //Hide buttons until operation done
                     vm.loadingState = '';
-                    AssetService.checkoutAsset(vm.deviceData.id,
-                            vm.datepicker.returnDate,
-                            vm.checkoutFor.email)
+                    AssetService.checkoutAsset(vm.deviceData.id, vm.datepicker.returnDate, vm.checkoutFor.email)
                         .then(_checkOutSuccess, _checkOutFail);
                 } else {
                     ModalService.get('dateWarning').open();
