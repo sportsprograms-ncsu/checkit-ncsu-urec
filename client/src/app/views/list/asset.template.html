@@ -24,9 +24,6 @@
                 </div>
             </div>
             <div class="asset-bottom">
-                <div class="left" ng-if="vm.content.categories.os.name || vm.content.categories.os.version">
-                    {{ vm.content.categories.os.name }} {{ vm.content.categories.os.version }}
-                </div>
                 <div class="res_name right" ng-if="vm.content.active_reservations[0]">
                     <span data-fittext data-fittext-max="18" data-fittext-min="14" data-ng-model="vm.content.name"
                           ng-class="vm.resColor(vm.content.active_reservations[0].borrower.name.first,

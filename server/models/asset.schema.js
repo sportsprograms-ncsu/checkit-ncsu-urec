@@ -103,7 +103,7 @@ var AssetSchema = new Schema({
     },
     passcode: {
         type: String,
-        default: '000000',
+        default: '0000',
         required: true
     },
     created: {

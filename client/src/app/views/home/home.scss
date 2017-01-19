@@ -10,7 +10,7 @@
 	padding: 0;
 	@include scrollable-parent(85px, 0, 0, 0);
 
-	.scan-button-container {
+	.urec-logo-container {
 		width: 100%;
 		height: 85px;
 		@include beflexible;
@@ -18,6 +18,12 @@
 		justify-content: center;
 		position: absolute;
 		top: 0;
+
+		img {
+			height: 85px;
+			padding-top: 0;
+			padding-bottom: 5px;
+		}
 	}
 
 	.asset-types-wrapper {
