@@ -352,12 +352,6 @@
                 'title': 'Device',
                 'value': data.name
             }, {
-                'title': 'Type',
-                'value': $filter('capitalize')(data.categories.type)
-            }, {
-                'title': 'OS',
-                'value': data.categories.os.name + ' ' + data.categories.os.version
-            }, {
                 'title': 'Status',
                 'value': $filter('capitalize')(data.state),
                 'valueModifier': vm.statusColor

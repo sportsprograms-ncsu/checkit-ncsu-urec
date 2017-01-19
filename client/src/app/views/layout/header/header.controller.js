@@ -38,13 +38,19 @@
                 // simple edits based on the title
                 switch (title) {
                     case 'all':
-                        vm.title = 'devices';
+                        vm.title = 'all';
                         break;
                     case 'details':
                         vm.title = title;
                         break;
                     case 'misc':
                         vm.title = title;
+                        break;
+                    case 'tablet':
+                        vm.title = 'iPads';
+                        break;
+                    case 'checkedout':
+                        vm.title = 'checked out';
                         break;
                     case 'edit':
                         vm.title = 'edit device';
