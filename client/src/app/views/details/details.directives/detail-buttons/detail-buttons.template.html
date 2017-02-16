@@ -36,6 +36,16 @@
             </div>
         </div>
     </div>
+    <!--Validation View-->
+    <div class="validation-container" ng-switch-when="validationView">
+        <input placeholder="Enter passcode" ng-model="inputValue" />
+        <div class="row">
+            <div class="passcode-input"></div>
+            <div class="passcode-submit" ng-click="vm.scanSuccess({cancelled: false, text: inputValue})">
+                Submit
+            </div>
+        </div>
+    </div>
     <!--Date Picker apply-->
     <div class="simple-button-container" ng-switch-when="checkoutView">
         <!--ng-if="checkoutView"-->
