@@ -62,7 +62,6 @@
         moment) {
         var vm = this;
 
-        ModalService.add('enterIdModalDetails');
         ModalService.add('invalidId');
         ModalService.add('errorModal');
         ModalService.compile();
@@ -153,8 +152,7 @@
                             vm.scanFail(error);
                         });
                 } else {
-
-                    ModalService.get('enterIdModalDetails').open();
+                    vm.switchView('validationView');
                 }
             } else {
                 if (vm.buttonStyles.class === 'checkout') {
@@ -180,7 +178,7 @@
                 message: 'Failed to checkin asset.'
             };
             $rootScope.errorModalText(err);
-            ModalService.get('enterIdModalDetails').open();
+            vm.switchView('validationView');
             vm.loadingState = 'contentSuccess';
         }
 
@@ -191,19 +189,17 @@
         vm.scanSuccess = function(scanObj) {
             console.log('vm.scanSuccess running');
             console.log(scanObj);
-            vm.switchView('infoView');
-            ModalService.get('enterIdModalDetails').close();
 
             if (!scanObj.cancelled) {
 
                 // First, check for if the input is blank
-                // For the modal; the scanner can't return a blank string
                 if (angular.isUndefined(scanObj) || scanObj.text === '') {
                     ModalService.get('invalidId').open();
                 } else if (scanObj.text !== vm.deviceData.passcode) {
                     ModalService.get('invalidId').open();
                 } else {
                     ValidationService.newValidationObject(vm.deviceData.id, moment().toISOString());
+                    vm.switchView('infoView');
                     vm.startCheckInOut();
                 }
             }
