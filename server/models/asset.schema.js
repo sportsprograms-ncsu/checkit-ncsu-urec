@@ -37,6 +37,7 @@ var OS = {
     name: {
         type: String,
         enum: OSnames,
+        default: OSnames[0],
         required: true
     },
     version: {
