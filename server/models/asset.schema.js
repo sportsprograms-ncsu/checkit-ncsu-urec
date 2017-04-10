@@ -42,6 +42,7 @@ var OS = {
     },
     version: {
         type: String,
+        default: '0',
         required: true
     }
 };

@@ -665,6 +665,7 @@ adminServices.createAsset = function(requestBody, userEmail, callback) {
     var _asset = new Asset({
         name: requestBody.name,
         description: requestBody.description,
+        passcode: requestBody.passcode,
         location: location,
         categories: requestBody.categories,
         attributes: requestBody.attributes,
