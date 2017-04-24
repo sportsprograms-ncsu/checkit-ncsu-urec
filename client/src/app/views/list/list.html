@@ -3,9 +3,6 @@
 	MIT Licensed
  -->
 
-<div> <!-- For debugging purposes only -->
-	<button ng-click="vm.chronologicalHistory()">Click to gather history</button>
-</div>
 <div ng-switch on="vm.loadingState" ng-cloak>
 	<div loading ng-switch-default></div>
 	<div ng-click="vm.getData()" error ng-switch-when="networkError"></div>
