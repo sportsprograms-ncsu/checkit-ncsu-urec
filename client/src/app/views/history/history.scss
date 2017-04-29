@@ -1,0 +1,55 @@
+.chronological-history {
+    @include scrollable-parent(0, 0, 0, 0);
+    .history-date-range-text {
+        text-align: center;
+        font-size: 18px;
+    }
+    .records {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        .checkit-list-light {
+            background-color: $checkit-list-light;
+        }
+        .checkit-list-dark {
+            background-color: $checkit-list-dark;
+        }
+        .record {
+            height: 60px;
+            padding: 10px;
+            .asset-name {
+                width: 50%;
+                font-size: 20px;
+                padding-bottom: 5px;
+                float: left;
+                text-align: left;
+            }
+            .record-type {
+                width: 50%;
+                font-size: 20px;
+                padding-bottom: 5px;
+                float: right;
+                text-align: right;
+            }
+            .record-date {
+                width: 50%;
+                font-size: 20px;
+                float: left;
+                text-align: left;
+            }
+            .record-name {
+                width: 50%;
+                font-size: 20px;
+                float: right;
+                text-align: right;
+            }
+            .checked-out-by {
+                color: $checkit-subcolor
+            }
+        }
+        .largeRecord {
+            @extend .record;
+            height: 90px;
+        }
+    }
+}

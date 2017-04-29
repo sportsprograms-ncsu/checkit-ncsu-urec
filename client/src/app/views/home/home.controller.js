@@ -14,6 +14,7 @@
         .controller('HomeController', HomeController);
 
     HomeController.$inject = [
+        '$rootScope'
     ];
 
     /**
@@ -23,7 +24,7 @@
      * The home page controller function.
      * @constructor
      */
-    function HomeController() {
+    function HomeController($rootScope) {
 
         var vm = this;
 
@@ -55,5 +56,15 @@
             image: '',
             value: 'all'
         });
+
+        vm.history = {
+            name: 'HISTORY',
+            image: '',
+            value: 'history'
+        };
+
+        vm.goToHistory = function(state) {
+            $rootScope.navigate(state);
+        };
     }
 })();
