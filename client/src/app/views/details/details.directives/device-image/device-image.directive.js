@@ -83,6 +83,9 @@
                 case 'key':
                     imgUrl = 'assets/images/key_30x30.svg';
                     break;
+                case 'mifi':
+                    imgUrl = 'assets/images/wifi_checkit-green.svg';
+                    break;
                 case 'misc':
                     imgUrl = 'assets/images/circle-thin-checkit-green.svg';
                     break;

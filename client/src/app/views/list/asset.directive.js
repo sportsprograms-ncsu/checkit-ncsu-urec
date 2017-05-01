@@ -68,6 +68,8 @@
                 imgUrl = 'assets/images/radio_32x40.svg';
             } else if (vm.content.categories.type === 'key') {
                 imgUrl = 'assets/images/key_30x30.svg';
+            } else if (vm.content.categories.type === 'mifi') {
+                imgUrl = 'assets/images/wifi_checkit-green.svg';
             } else if (vm.content.categories.type === 'misc') {
                 imgUrl = 'assets/images/circle-thin-checkit-green.svg';
             } else {

@@ -42,6 +42,10 @@
             image: 'assets/images/key_30x30.svg',
             value: 'key'
         }, {
+            name: 'MiFi',
+            image: 'assets/images/wifi_checkit-green.svg',
+            value: 'mifi'
+        }, {
             name: 'MISC',
             image: 'assets/images/circle-thin-checkit-green.svg',
             value: 'misc'

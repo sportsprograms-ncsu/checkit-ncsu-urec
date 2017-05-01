@@ -3,7 +3,7 @@
         "apiHost": "http://localhost:3000/",
         "assetEnum": {
             "os": ["iOS", "Android", "Windows", "WatchOS", "FireOS", "OSX", "N/A"],
-            "type": ["tablet", "radio", "key", "misc"],
+            "type": ["tablet", "radio", "key", "mifi", "misc"],
             "location": ["Raleigh"]
         },
         "eventConfig": {
