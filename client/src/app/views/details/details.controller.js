@@ -228,8 +228,9 @@
                 .second(date.seconds())
                 .millisecond(date.milliseconds());
 
-            if (vm.deviceData.categories.type === 'tablet' || vm.deviceData.categories.type === 'radio') {
-                // Require tablets (iPads) and radios to only be checked out for the current date
+            if (vm.deviceData.categories.type === 'tablet' || vm.deviceData.categories.type === 'radio' ||
+                vm.deviceData.categories.type === 'mifi') {
+                // Require tablets (iPads), radios, and mifi devices to only be checked out for the current date
                 if (date.isSame(now)) {
                     UtilService.logInfo('details', 'detailsContainer', 'Calling AssetService.checkoutAsset');
                     //Hide buttons until operation done

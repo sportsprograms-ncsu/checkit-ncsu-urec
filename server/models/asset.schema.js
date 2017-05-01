@@ -8,7 +8,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
-var types = 'tablet radio key misc'.split(' ');
+var types = 'tablet radio key mifi misc'.split(' ');
 var locations = 'Raleigh'.split(' ');
 var locationIds = [697673324];
 var statuses = 'available in_use in_repair upgrading maintenance retired missing'.split(' ');
