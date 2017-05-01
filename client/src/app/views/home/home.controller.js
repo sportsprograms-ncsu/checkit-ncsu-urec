@@ -14,6 +14,7 @@
         .controller('HomeController', HomeController);
 
     HomeController.$inject = [
+        '$rootScope'
     ];
 
     /**
@@ -23,7 +24,7 @@
      * The home page controller function.
      * @constructor
      */
-    function HomeController() {
+    function HomeController($rootScope) {
 
         var vm = this;
 
@@ -41,6 +42,10 @@
             image: 'assets/images/key_30x30.svg',
             value: 'key'
         }, {
+            name: 'MiFi',
+            image: 'assets/images/wifi_checkit-green.svg',
+            value: 'mifi'
+        }, {
             name: 'MISC',
             image: 'assets/images/circle-thin-checkit-green.svg',
             value: 'misc'
@@ -55,5 +60,15 @@
             image: '',
             value: 'all'
         });
+
+        vm.history = {
+            name: 'HISTORY',
+            image: '',
+            value: 'history'
+        };
+
+        vm.goToHistory = function(state) {
+            $rootScope.navigate(state);
+        };
     }
 })();

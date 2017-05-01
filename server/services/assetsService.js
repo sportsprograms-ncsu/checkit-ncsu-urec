@@ -311,7 +311,7 @@ function getAssets(query, callback) {
 
     var filter = (query.filter) ? query.filter : 'categories.type'; // defaults to filtering categories
     //TODO put this data in a config?
-    var allTypes = 'tablet radio key misc'.split(' ');
+    var allTypes = 'tablet radio key mifi misc'.split(' ');
     //var type = [query.type];
     var type = (query.type) ? [query.type] : allTypes;
     Asset.find({}, {
